@@ -10,6 +10,7 @@ export enum SubjectEnum {
   ART,
   SPORTS,
   RELIGION,
+  WORKSHOP,
 };
 
 @Entity()
