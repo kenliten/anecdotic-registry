@@ -1,0 +1,23 @@
+<h2>Entries</h2>
+
+<app-entry-form (saved)="loadEntries()"></app-entry-form>
+<hr>
+<mdb-tabs [fill]="true">
+  <mdb-tab *ngFor="let section of sections" [title]="section.name">
+    <mdb-accordion>
+      <mdb-accordion-item *ngFor="let student of studentsBySection(section.id)">
+        <ng-template mdbAccordionItemHeader>{{ student.firstname }} {{ student.lastname }}</ng-template>
+        <ng-template mdbAccordionItemBody>
+          <ul class="list-group" *ngIf="entriesByStudent(student.id).length">
+            <li class="list-group-item" *ngFor="let entry of entriesByStudent(student.id)">
+              <a [routerLink]="['/entries', entry.id]">{{ entry.date | date }} - {{ entry.description }}</a>
+            </li>
+          </ul>
+          <div class="text-center" *ngIf="entriesByStudent(student.id).length == 0">
+            No data yet.
+          </div>
+        </ng-template>
+      </mdb-accordion-item>
+    </mdb-accordion>
+  </mdb-tab>
+</mdb-tabs>

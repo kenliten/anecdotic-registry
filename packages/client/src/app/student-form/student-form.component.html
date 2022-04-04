@@ -1,0 +1,25 @@
+<form [formGroup]="studentForm" class="mb-2 row g-3 justify-content-center" (ngSubmit)="saveStudent()">
+  <div class="col-auto">
+    <label for="firstname" class="col-form-label">Firstname</label>
+  </div>
+  <div class="col-auto">
+    <input type="text" formControlName="firstname" id="firstname" class="form-control">
+  </div>
+  <div class="col-auto">
+    <label for="lastname" class="col-form-label">Lastname</label>
+  </div>
+  <div class="col-auto">
+    <input type="text" formControlName="lastname" id="lastname" class="form-control">
+  </div>
+  <div class="col-auto">
+    <label for="section" class="col-form-label">Section</label>
+  </div>
+  <div class="col-auto">
+    <select formControlName="section" id="section" class="form-control">
+      <option *ngFor="let section of sections" [value]="section.id">{{ section.name }}</option>
+    </select>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+  </div>
+</form>
