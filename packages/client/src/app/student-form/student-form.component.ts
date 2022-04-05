@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Section } from '../section';
 import { SectionService } from '../section.service';
@@ -14,6 +15,7 @@ import { StudentService } from '../student.service';
 export class StudentFormComponent implements OnInit {
 
   @Output('saved') saved: EventEmitter<boolean> = new EventEmitter();
+  @Input('navigateAfterSave') navigateAfterSave: boolean = true;
 
   students: Student[] = [];
   sections: Section[] = [];
@@ -25,13 +27,24 @@ export class StudentFormComponent implements OnInit {
   });
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
+    private route: ActivatedRoute,
     private studentService: StudentService,
     private sectionService: SectionService,
   ) { }
 
   ngOnInit(): void {
     this.loadSections();
+    if (this.studentId) {
+      const id = +this.studentId;
+      this.studentService.getStudent(id).subscribe(student => {
+        if (student) {
+          const { id, ...data } = student;
+          this.studentForm.setValue(data);
+        }
+      });
+    }
   }
 
   loadSections() {
@@ -42,10 +55,24 @@ export class StudentFormComponent implements OnInit {
   }
 
   saveStudent() {
-    this.studentService.addStudent(this.studentForm.value).subscribe(_ => {
-      this.saved.emit(_);
-      this.studentForm.reset();
-    });
+    if (this.studentId) {
+      const id = +this.studentId;
+      this.studentService.updateStudent({ id, ...this.studentForm.value }).subscribe(async (_) => {
+        this.router.navigate(['/students', this.studentId]);
+      });
+    } else {
+      this.studentService.addStudent(this.studentForm.value).subscribe(_ => {
+        this.saved.emit(_);
+        this.studentForm.reset();
+        if (this.navigateAfterSave) {
+          this.router.navigate(['/students']);
+        }
+      });
+    }
+  }
+
+  get studentId() {
+    return this.route.snapshot.paramMap.get('id');
   }
 
 }

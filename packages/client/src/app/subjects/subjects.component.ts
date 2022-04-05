@@ -16,11 +16,6 @@ export class SubjectsComponent implements OnInit {
   subjects: Subject[] = [];
   sections: Section[] = [];
 
-  subjectForm = this.fb.group({
-    section: [0],
-    subject: [SubjectEnum.SPANISH],
-  });
-
   constructor(
     private fb: FormBuilder,
     private subjectService: SubjectService,
@@ -34,17 +29,10 @@ export class SubjectsComponent implements OnInit {
   loadSubjects() {
     this.sectionService.getSections().subscribe(sections => {
       this.sections = sections;
-      this.subjectForm.get('section')?.setValue(sections[0]?.id);
     });
 
     this.subjectService.getSubjects().subscribe(subjects => {
       this.subjects = subjects;
-    });
-  }
-
-  saveSubject() {
-    this.subjectService.addSubject(this.subjectForm.value).subscribe(result => {
-      this.loadSubjects();
     });
   }
 

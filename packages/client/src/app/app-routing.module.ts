@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { EntriesComponent } from './entries/entries.component';
 import { EntryComponent } from './entry/entry.component';
 import { EntryFormComponent } from './entry-form/entry-form.component';
@@ -22,6 +24,7 @@ import { AttendanceListComponent } from './attendance-list/attendance-list.compo
 import { AttendanceFormComponent } from './attendance-form/attendance-form.component';
 
 const routes: Routes = [
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'entries', component: EntriesComponent },
   { path: 'entries/new', component: EntryFormComponent },
   { path: 'entries/:id', component: EntryComponent },
@@ -40,7 +43,7 @@ const routes: Routes = [
   { path: 'subjects/:id/edit', component: SubjectFormComponent },
   { path: 'attendance', component: AttendanceListComponent },
   { path: 'attendance/:id', component: AttendanceComponent },
-  { path: '', redirectTo: '/entries', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({

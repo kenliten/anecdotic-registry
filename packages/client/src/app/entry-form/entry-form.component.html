@@ -1,3 +1,4 @@
+<h2 *ngIf="entryId" class="mb-2 d-print-none">Editing entry #{{ entryId }}</h2>
 <form [formGroup]="entryForm" class="mb-2" (ngSubmit)="saveEntry()">
   <div class="row g-3 mb-2">
     <div class="col-4">

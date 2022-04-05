@@ -1,4 +1,4 @@
-<form [formGroup]="studentForm" class="mb-2 row g-3 justify-content-center" (ngSubmit)="saveStudent()">
+<form [formGroup]="studentForm" class="mb-2 row g-3 justify-content-center d-print-none" (ngSubmit)="saveStudent()">
   <div class="col-auto">
     <label for="firstname" class="col-form-label">Firstname</label>
   </div>
@@ -18,6 +18,10 @@
     <select formControlName="section" id="section" class="form-control">
       <option *ngFor="let section of sections" [value]="section.id">{{ section.name }}</option>
     </select>
+  </div>
+  <div class="col-12" *ngIf="studentId">
+    <label for="notes" class="form-label">Notes</label>
+    <textarea id="notes" formControlName="notes" class="form-control" rows="4"></textarea>
   </div>
   <div class="col-auto">
     <button type="submit" class="btn btn-sm btn-primary">Save</button>

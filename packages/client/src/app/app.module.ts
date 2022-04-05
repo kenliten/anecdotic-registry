@@ -39,6 +39,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { AttendanceFormComponent } from './attendance-form/attendance-form.component';
 import { AttendanceListComponent } from './attendance-list/attendance-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AttendanceListComponent } from './attendance-list/attendance-list.compo
     NavbarComponent,
     AttendanceComponent,
     AttendanceFormComponent,
-    AttendanceListComponent
+    AttendanceListComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

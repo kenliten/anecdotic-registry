@@ -1,1 +1,13 @@
-<p>subject works!</p>
+<h2>Subject #{{ subjectId }}</h2>
+<div *ngIf="subject">
+  <p>
+    <b>Section</b>: {{ sectionName(subject.section) }}
+  </p>
+  <p>
+    <b>Subject</b>: {{ subjectName(subject.subject) }}
+  </p>
+  <div class="mt-2">
+    <button type="button" (click)="deleteSubject()" class="btn btn-sm btn-danger me-2">Delete</button>
+    <a [routerLink]="['/subjects', subjectId, 'edit']" class="btn btn-sm btn-primary">Edit</a>
+  </div>
+</div>

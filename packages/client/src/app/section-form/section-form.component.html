@@ -1,1 +1,35 @@
-<p>section-form works!</p>
+<h2 *ngIf="sectionId">Editing section #{{ sectionId }}</h2>
+<form [formGroup]="sectionForm" class="mb-2 row g-3 justify-content-center d-print-none" (ngSubmit)="saveSection()">
+  <div class="col-auto">
+    <label for="name" class="col-form-label">Name</label>
+  </div>
+  <div class="col-auto">
+    <input id="name" formControlName="name" type="text" class="form-control">
+  </div>
+  <div class="col-auto">
+    <label for="grade" class="col-form-label">Grade</label>
+  </div>
+  <div class="col-auto">
+    <select class="form-control" formControlName="grade" id="grade">
+      <option [value]="0">1ro</option>
+      <option [value]="1">2do</option>
+      <option [value]="2">3ro</option>
+      <option [value]="3">4to</option>
+      <option [value]="4">5to</option>
+      <option [value]="5">6to</option>
+    </select>
+  </div>
+  <div class="col-auto">
+    <label for="level" class="col-form-label">Level</label>
+  </div>
+  <div class="col-auto">
+    <select class="form-control" formControlName="level" id="level">
+      <option [value]="0">Prescolar</option>
+      <option [value]="1">Primaria</option>
+      <option [value]="2">Secundaria</option>
+    </select>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+  </div>
+</form>

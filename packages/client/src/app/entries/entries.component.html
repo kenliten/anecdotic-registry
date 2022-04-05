@@ -1,6 +1,13 @@
 <h2>Entries</h2>
 
-<app-entry-form (saved)="loadEntries()"></app-entry-form>
+<mdb-accordion>
+  <mdb-accordion-item>
+    <ng-template mdbAccordionItemHeader>New Entry</ng-template>
+    <ng-template mdbAccordionItemBody>
+      <app-entry-form (saved)="loadEntries()" [navigateAfterSave]="false"></app-entry-form>
+    </ng-template>
+  </mdb-accordion-item>
+</mdb-accordion>
 <hr>
 <mdb-tabs [fill]="true">
   <mdb-tab *ngFor="let section of sections" [title]="section.name">

@@ -82,7 +82,7 @@ export class StudentsComponent implements OnInit {
 
   studentEntries(id?: number) {
     if (id) {
-      return this.entries.filter(e => e.students.includes(id)).length;
+      return this.entries.filter(e => e.students.map(std => +std).includes(id)).length;
     } else {
       return 0;
     }

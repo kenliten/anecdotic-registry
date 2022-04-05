@@ -11,7 +11,7 @@
           <th scope="col">Firstname</th>
           <th scope="col">Lastname</th>
           <th scope="col">Entries</th>
-          <th scope="col">Controls</th>
+          <th class="d-print-none" scope="col">Controls</th>
         </tr>
       </thead>
       <tbody>
@@ -20,9 +20,9 @@
           <td>{{ student.firstname }}</td>
           <td>{{ student.lastname }}</td>
           <td>{{ studentEntries(student.id) }}</td>
-          <td>
-            <button type="button" (click)="deleteStudent(student.id)" class="btn btn-sm me-2 btn-danger">Delete</button>
-            <a [routerLink]="['/students', student.id]" class="btn btn-sm btn-primary">Details</a>
+          <td class="d-print-none">
+            <button type="button" (click)="deleteStudent(student.id)" class="btn btn-sm me-2 btn-danger d-print-none">Delete</button>
+            <a [routerLink]="['/students', student.id]" class="btn btn-sm btn-primary d-print-none">Details</a>
           </td>
         </tr>
       </tbody>

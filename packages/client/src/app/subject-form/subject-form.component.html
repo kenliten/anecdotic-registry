@@ -1,1 +1,31 @@
-<p>subject-form works!</p>
+<h2 *ngIf="subjectId">Editing Subject #{{ subjectId }}</h2>
+<form [formGroup]="subjectForm" class="mb-2 row g-3 justify-content-center" (ngSubmit)="saveSubject()">
+  <div class="col-auto">
+    <label for="section" class="col-form-label">Section</label>
+  </div>
+  <div class="col-auto">
+    <select formControlName="section" id="section" class="form-control">
+      <option *ngFor="let section of sections" [value]="section.id">{{ section.name }}</option>
+    </select>
+  </div>
+  <div class="col-auto">
+    <label for="subject" class="col-form-label">Subject</label>
+  </div>
+  <div class="col-auto">
+    <select formControlName="subject" id="subject" class="form-control">
+      <option [value]="0">Lengua Espanola</option>
+      <option [value]="1">Ingles</option>
+      <option [value]="2">Frances</option>
+      <option [value]="3">Matematica</option>
+      <option [value]="4">Ciencias Sociales</option>
+      <option [value]="5">Ciencias de la Naturaleza</option>
+      <option [value]="6">Educacion Artistica</option>
+      <option [value]="7">Educacion Fisica</option>
+      <option [value]="8">F.I.H.R.</option>
+      <option [value]="9">Taller Optativo</option>
+    </select>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+  </div>
+</form>
