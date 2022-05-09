@@ -1,35 +1,35 @@
-<h2>Section #{{ sectionId }}</h2>
+<h2><ng-container i18n>Section</ng-container> #{{ sectionId }}</h2>
 <div *ngIf="section">
   <p>
-    <b>Name</b>: {{ section.name }}
+    <b i18n>Name</b>: {{ section.name }}
   </p>
   <p>
-    <b>Grade</b>: {{ gradeName(section.grade) }}
+    <b i18n>Grade</b>: {{ gradeName(section.grade) }}
   </p>
   <p>
-    <b>Level</b>: {{ levelName(section.level) }}
+    <b i18n>Level</b>: {{ levelName(section.level) }}
   </p>
   <div class="my-2">
-    <button type="button" (click)="deleteSection()" class="btn btn-sm btn-danger me-2">Delete</button>
-    <a [routerLink]="['/sections', sectionId, 'edit']" class="btn btn-sm btn-primary">Edit</a>
+    <button type="button" (click)="deleteSection()" class="btn btn-sm btn-danger me-2" i18n>Delete</button>
+    <a [routerLink]="['/sections', sectionId, 'edit']" class="btn btn-sm btn-primary" i18n>Edit</a>
   </div>
-  <h3>Subjects</h3>
+  <h3 i18n>Subjects</h3>
   <ul class="list-group mb-2">
     <li class="list-group-item" *ngFor="let subject of subjects"><a [routerLink]="['/subjects', subject.id]">{{ subjectName(subject.subject) }}</a></li>
   </ul>
-  <h3>Entries</h3>
+  <h3 i18n>Entries</h3>
   <ul class="list-group mb-2">
     <li class="list-group-item" *ngFor="let entry of entries"><a [routerLink]="['/entries', entry.id]">{{ entry.date | date }} - ({{ entry.id ? studentList(+entry.id) : 'No Students' }})</a></li>
   </ul>
-  <h3>Students</h3>
+  <h3 i18n>Students</h3>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Firstname</th>
-        <th scope="col">Lastname</th>
-        <th scope="col">Entries</th>
-        <th class="d-print-none" scope="col">Controls</th>
+        <th scope="col" i18n>Firstname</th>
+        <th scope="col" i18n>Lastname</th>
+        <th scope="col" i18n>Entries</th>
+        <th class="d-print-none" scope="col" i18n>Controls</th>
       </tr>
     </thead>
     <tbody>
@@ -38,9 +38,9 @@
         <td>{{ student.firstname }}</td>
         <td>{{ student.lastname }}</td>
         <td>{{ studentEntries(student.id) }}</td>
-        <td class="d-print-none">
-          <button type="button" (click)="deleteStudent(student.id)" class="btn btn-sm me-2 btn-danger">Delete</button>
-          <a [routerLink]="['/students', student.id]" class="btn btn-sm btn-primary">Details</a>
+        <td class="d-print-none row g-2">
+          <button type="button" (click)="deleteStudent(student.id)" class="btn btn-sm me-2 btn-danger col-auto" i18n>Delete</button>
+          <a [routerLink]="['/students', student.id]" class="btn btn-sm btn-primary col-auto" i18n>Details</a>
         </td>
       </tr>
     </tbody>

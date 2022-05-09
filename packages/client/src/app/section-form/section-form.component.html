@@ -1,35 +1,35 @@
-<h2 *ngIf="sectionId">Editing section #{{ sectionId }}</h2>
+<h2 *ngIf="sectionId"><ng-container i18n>Editing section</ng-container> #{{ sectionId }}</h2>
 <form [formGroup]="sectionForm" class="mb-2 row g-3 justify-content-center d-print-none" (ngSubmit)="saveSection()">
   <div class="col-auto">
-    <label for="name" class="col-form-label">Name</label>
+    <label for="name" class="col-form-label" i18n>Name</label>
   </div>
   <div class="col-auto">
     <input id="name" formControlName="name" type="text" class="form-control">
   </div>
   <div class="col-auto">
-    <label for="grade" class="col-form-label">Grade</label>
+    <label for="grade" class="col-form-label" i18n>Grade</label>
   </div>
   <div class="col-auto">
     <select class="form-control" formControlName="grade" id="grade">
-      <option [value]="0">1ro</option>
-      <option [value]="1">2do</option>
-      <option [value]="2">3ro</option>
-      <option [value]="3">4to</option>
-      <option [value]="4">5to</option>
-      <option [value]="5">6to</option>
+      <option [value]="0" i18n>1ro</option>
+      <option [value]="1" i18n>2do</option>
+      <option [value]="2" i18n>3ro</option>
+      <option [value]="3" i18n>4to</option>
+      <option [value]="4" i18n>5to</option>
+      <option [value]="5" i18n>6to</option>
     </select>
   </div>
   <div class="col-auto">
-    <label for="level" class="col-form-label">Level</label>
+    <label for="level" class="col-form-label" i18n>Level</label>
   </div>
   <div class="col-auto">
     <select class="form-control" formControlName="level" id="level">
-      <option [value]="0">Prescolar</option>
-      <option [value]="1">Primaria</option>
-      <option [value]="2">Secundaria</option>
+      <option [value]="0" i18n>Preschool</option>
+      <option [value]="1" i18n>Elementary</option>
+      <option [value]="2" i18n>High School</option>
     </select>
   </div>
   <div class="col-auto">
-    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+    <button type="submit" class="btn btn-primary btn-sm" i18n>Save</button>
   </div>
 </form>

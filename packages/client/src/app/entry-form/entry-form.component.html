@@ -1,31 +1,31 @@
-<h2 *ngIf="entryId" class="mb-2 d-print-none">Editing entry #{{ entryId }}</h2>
+<h2 *ngIf="entryId" class="mb-2 d-print-none"><ng-container i18n>Editing entry</ng-container> #{{ entryId }}</h2>
 <form [formGroup]="entryForm" class="mb-2" (ngSubmit)="saveEntry()">
   <div class="row g-3 mb-2">
     <div class="col-4">
-      <label for="date" class="form-label">Date</label>
+      <label for="date" class="form-label" i18n>Date</label>
       <input type="date" formControlName="date" id="date" class="form-control">
     </div>
     <div class="col-4">
-      <label for="time" class="form-label">Time</label>
+      <label for="time" class="form-label" i18n>Time</label>
       <input type="time" formControlName="time" id="time" class="form-control">
     </div>
     <div class="col-4">
-      <label for="place" class="form-label">Place</label>
+      <label for="place" class="form-label" i18n>Place</label>
       <input type="text" formControlName="place" id="place" class="form-control">
     </div>
   </div>
   <div class="row g-3">
     <div class="col-6">
-      <label for="entryType" class="form-label">Entry Type</label>
+      <label for="entryType" class="form-label" i18n>Entry Type</label>
       <select formControlName="entryType" id="entryType" class="form-control">
-        <option [value]="0">Accident</option>
-        <option [value]="1">Problem</option>
-        <option [value]="2">Fact</option>
-        <option [value]="3">Situation</option>
+        <option [value]="0" i18n>Accident</option>
+        <option [value]="1" i18n>Problem</option>
+        <option [value]="2" i18n>Fact</option>
+        <option [value]="3" i18n>Situation</option>
       </select>
     </div>
     <div class="col-6">
-      <label for="section" class="form-label">Section</label>
+      <label for="section" class="form-label" i18n>Section</label>
       <select formControlName="section" id="section" class="form-control">
         <option *ngFor="let section of sections" [value]="section.id">{{ section.name }}</option>
       </select>
@@ -33,27 +33,27 @@
   </div>
   <div class="row g-3 my-2">
     <div class="col-6">
-      <label for="description" class="form-label">Description</label>
+      <label for="description" class="form-label" i18n>Description</label>
       <textarea id="description" formControlName="description" class="form-control"></textarea>
     </div>
     <div class="col-6">
-      <label for="comments" class="form-label">Comments</label>
+      <label for="comments" class="form-label" i18n>Comments</label>
       <textarea id="comments" formControlName="comments" class="form-control"></textarea>
     </div>
   </div>
   <div formArrayName="students" class="mb-2">
-    <h3>Students</h3>
+    <h3 i18n>Students</h3>
     <div class="row g-3">
       <div *ngFor="let student of studentFields.controls; let i = index" class="col-3">
-        <label for="student-{{ i }}" class="form-label">Student {{ i + 1 }}</label>
+        <label for="student-{{ i }}" class="form-label"><ng-container i18n>Student</ng-container> {{ i + 1 }}</label>
         <select id="student-{{ i }}" class="form-control" [formControlName]="i">
           <option *ngFor="let std of students" [value]="std.id">{{ std.firstname }} {{ std.lastname }} ({{ studentSectionName(std.section) }})</option>
         </select>
       </div>
     </div>
-    <button type="button" (click)="addStudent()" class="btn btn-sm btn-secondary mt-2">Add another student</button>
+    <button type="button" (click)="addStudent()" class="btn btn-sm btn-secondary mt-2" i18n>Add another student</button>
   </div>
   <div class="">
-    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+    <button type="submit" class="btn btn-sm btn-primary" i18n>Save</button>
   </div>
 </form>

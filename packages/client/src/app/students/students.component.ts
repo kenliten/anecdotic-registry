@@ -67,8 +67,11 @@ export class StudentsComponent implements OnInit {
 
   saveStudent() {
     this.studentService.addStudent(this.studentForm.value).subscribe(_ => {
-      this.loadStudents();
-      this.studentForm.reset();
+      if (_) {
+        this.studentForm.get('firstname')?.setValue('');
+        this.studentForm.get('lastname')?.setValue('');
+        this.loadStudents();
+      }
     });
   }
 

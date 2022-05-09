@@ -1,34 +1,34 @@
-<h2>Entry #{{ entryId }}</h2>
+<h2><ng-container i18n>Entry</ng-container> #{{ entryId }}</h2>
 <div *ngIf="entry">
   <div class="row mb-2">
-    <div class="col-6"><b>Date</b>: {{ entry.date | date }}</div>
-    <div class="col-6"><b>Time</b>: {{ entry.time }}</div>
+    <div class="col-6"><b i18n>Date</b>: {{ entry.date | date }}</div>
+    <div class="col-6"><b i18n>Time</b>: {{ entry.time }}</div>
   </div>
   <div class="row mb-2">
-    <div class="col-6"><b>Grade</b>: {{ sectionName }}</div>
-    <div class="col-6"><b>Place</b>: {{ entry.place }}</div>
+    <div class="col-6"><b i18n>Grade</b>: {{ sectionName }}</div>
+    <div class="col-6"><b i18n>Place</b>: {{ entry.place }}</div>
   </div>
   <p>
-    <b>Students</b>: {{ studentList }}
+    <b i18n>Students</b>: {{ studentList }}
   </p>
   <div class="my-2">
-    <h3>Description</h3>
+    <h3 i18n>Description</h3>
     <p>
       {{ entry.description }}
     </p>
   </div>
   <div class="">
-    <h3>Comments</h3>
+    <h3 i18n>Comments</h3>
     <p>
       {{ entry.comments }}
     </p>
   </div>
   <div class="row g-3">
     <div class="col-auto">
-      <button type="button" (click)="deleteEntry()" class="btn btn-sm btn-danger">Delete</button>
+      <button type="button" (click)="deleteEntry()" class="btn btn-sm btn-danger" i18n>Delete</button>
     </div>
     <div class="col-auto">
-      <a [routerLink]="['/entries', entryId, 'edit']" class="btn btn-sm btn-primary">Edit</a>
+      <a [routerLink]="['/entries', entryId, 'edit']" class="btn btn-sm btn-primary" i18n>Edit</a>
     </div>
   </div>
 </div>

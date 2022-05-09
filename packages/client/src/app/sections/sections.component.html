@@ -1,4 +1,4 @@
-<h2>Sections</h2>
+<h2 i18n>Sections</h2>
 
 <app-section-form (saved)="loadSections()" [navigateAfterSave]="false"></app-section-form>
 
@@ -6,8 +6,8 @@
   <mdb-accordion-item *ngFor="let section of sections">
     <ng-template mdbAccordionItemHeader>{{ section.name }}</ng-template>
     <ng-template mdbAccordionItemBody>
-      <button type="button" (click)="deleteSection(section.id)" class="btn btn-sm me-2 btn-danger">Delete</button>
-      <a [routerLink]="['/sections', section.id]" class="btn btn-sm btn-primary">Details</a>
+      <button type="button" (click)="deleteSection(section.id)" class="btn btn-sm me-2 btn-danger" i18n>Delete</button>
+      <a [routerLink]="['/sections', section.id]" class="btn btn-sm btn-primary" i18n>Details</a>
     </ng-template>
   </mdb-accordion-item>
 </mdb-accordion>

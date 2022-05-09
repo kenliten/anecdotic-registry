@@ -1,8 +1,8 @@
-<h2>Entries</h2>
+<h2 i18n>Entries</h2>
 
 <mdb-accordion>
   <mdb-accordion-item>
-    <ng-template mdbAccordionItemHeader>New Entry</ng-template>
+    <ng-template mdbAccordionItemHeader i18n>New Entry</ng-template>
     <ng-template mdbAccordionItemBody>
       <app-entry-form (saved)="loadEntries()" [navigateAfterSave]="false"></app-entry-form>
     </ng-template>
@@ -20,7 +20,7 @@
               <a [routerLink]="['/entries', entry.id]">{{ entry.date | date }} - {{ entry.description }}</a>
             </li>
           </ul>
-          <div class="text-center" *ngIf="entriesByStudent(student.id).length == 0">
+          <div class="text-center" *ngIf="entriesByStudent(student.id).length == 0" i18n>
             No data yet.
           </div>
         </ng-template>

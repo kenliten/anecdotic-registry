@@ -1,22 +1,22 @@
-<h2>Student #{{ studentId }}</h2>
+<h2><ng-container i18n>Student</ng-container> #{{ studentId }}</h2>
 <div *ngIf="student">
   <p>
-    <b>Firstname</b>: {{ student.firstname }}
+    <b i18n>Firstname</b>: {{ student.firstname }}
   </p>
   <p>
-    <b>Lastname</b>: {{ student.lastname }}
+    <b i18n>Lastname</b>: {{ student.lastname }}
   </p>
   <p>
-    <b>Section</b>: {{ student.section }}
+    <b i18n>Section</b>: {{ student.section }}
   </p>
   <div>
-    <b>Notes</b>:
+    <b i18n>Notes</b>:
     <p>
       {{ student.notes }}
     </p>
   </div>
   <div class="mt-2">
-    <button type="button" (click)="deleteStudent()" class="btn btn-sm btn-danger me-2">Delete</button>
-    <a [routerLink]="['/students', studentId, 'edit']" class="btn btn-sm btn-primary">Edit</a>
+    <button type="button" (click)="deleteStudent()" class="btn btn-sm btn-danger me-2" i18n>Delete</button>
+    <a [routerLink]="['/students', studentId, 'edit']" class="btn btn-sm btn-primary" i18n>Edit</a>
   </div>
 </div>
